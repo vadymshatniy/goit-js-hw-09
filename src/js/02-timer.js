@@ -65,6 +65,7 @@ function addLeadingZero(value) {
 
 startButton.addEventListener('click', () => {
     document.getElementById("datetime-picker").disabled = true;
+    startButton.setAttribute('disabled', true);
     const timerId = setInterval(() => {
         ms = ms - 1000;
         console.log(ms);
@@ -75,6 +76,7 @@ startButton.addEventListener('click', () => {
         timerSeconds.textContent = addLeadingZero(seconds); 
             if (ms < 1000) {
                 clearInterval(timerId);
+                document.getElementById("datetime-picker").disabled = false;
             }
     }, 1000);
 });
